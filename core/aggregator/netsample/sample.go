@@ -30,6 +30,7 @@ const (
 	keyResponseBytes
 	keyErrno
 	keyProtoCode
+	keyElementsCount
 	fieldsNum
 )
 
@@ -70,6 +71,11 @@ func (s *Sample) ProtoCode() int { return s.get(keyProtoCode) }
 func (s *Sample) SetProtoCode(code int) {
 	s.set(keyProtoCode, code)
 	s.setRTT()
+}
+
+func (s *Sample) ElementsCount() int { return s.get(keyElementsCount) }
+func (s *Sample) SetElementsCount(code int) {
+	s.set(keyElementsCount, code)
 }
 
 func (s *Sample) Err() error { return s.err }
